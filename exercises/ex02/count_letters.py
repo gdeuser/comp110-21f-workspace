@@ -1,6 +1,7 @@
 """Counting letters in a string."""
 
-__author__ = "ENTER YOUR 9-DIGIT PID HERE"
+__author__ = "730306940"
 
 
-# Begin your solution here...
+letter = input("What Letter do you want to search for?: ")
+word = input("Enter a word: ")
