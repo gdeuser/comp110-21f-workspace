@@ -12,7 +12,6 @@ __author__ = "730306940"
 from random import randint
 
 
-# Begin your solution here...
 fortune = randint(1, 50)
 print("Your fortune cookie says...")
 if fortune > 38:
