@@ -5,12 +5,16 @@ __author__ = "730306940"
 
 beat = input("What beat do you want to repeat? ")
 repeat: int = int(input("How many times do you want to repeat it? "))
-
 count: int = 0
-while count < repeat:
-    if repeat > 0:
-        beat_2 = beat + str(" " + beat)
+v = ""
+
+if repeat <= 0:
+    print("No beat...")
+else:
+    while count < repeat:
+        if count == repeat - 1:
+            v = v + beat
+        else:
+            v = v + beat + " "
         count = count + 1
-        print(beat)
-    else:
-        print("No beat...")
+print(v)
