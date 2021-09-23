@@ -22,7 +22,7 @@ def main() -> None:
     while not stopped:
         select: int = int(input("Choose 1 for basketball, 2 for football , and 3 to quit and save your ego. "))
         if select == 3:
-            stopped: bool = True
+            stopped = True
         else:
             if select == 2:
                 football()
