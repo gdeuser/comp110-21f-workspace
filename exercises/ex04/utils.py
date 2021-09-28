@@ -7,10 +7,13 @@ def all(n: list[int], number: int) -> bool:
     """Testing if all integers in a list are the same as the input integer."""
     i: int = 0
     state: bool = True
-    while i < len(n):
-        if n[i] != number:
-            state = False
-        i = i + 1
+    if len(n) == 0:
+        state = False
+    else:
+        while i < len(n):
+            if n[i] != number:
+                state = False
+            i = i + 1
     return(state)
 
 
