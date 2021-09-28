@@ -9,19 +9,37 @@ def all(n: list[int], number: int) -> bool:
     state: bool = True
     while i < len(n):
         if n[i] != number:
-            state = not True
+            state = False
         i = i + 1
     return(state)
 
 
 def is_equal(origin: list[int], compare: list[int]) -> bool:
     """Testing to see if two lists are the exact same."""
+    x: int = 0
+    equality: bool = True
+    if len(origin) != len(compare):
+        equality = False
+    else:
+        if len(origin) != 0 and len(compare) != 0:
+            while x < len(origin):
+                if origin[x] != compare[x]:
+                    equality = False
+                x = x + 1
+    return(equality)
 
 
-def max(input: list[int]) -> int:
+def max(test: list[int]) -> int:
     """Finding the largest number in a list of integers."""
     x: int = 0
-    if len(input) == 0:
+    current_max: int
+    if len(test) == 0:
         raise ValueError("max() arg is an empty List")
     else:
-        if input[x]
+        current_max = test[x]
+        x = x + 1
+        while x < len(test):
+            if current_max < test[x]:
+                current_max = test[x]
+            x = x + 1
+    return(current_max)
