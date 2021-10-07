@@ -17,6 +17,8 @@ def only_evens(n: list[int]) -> list[int]:
 def sub(origin: list[int], start: int, end: int) -> list[int]:
     """Creating a sublist from an orginal input list."""
     sublist: list[int] = []
+    if origin == []:
+        return origin
     if end > len(origin):
         end = len(origin)
     if start < origin[0]:
@@ -32,3 +34,6 @@ def concat(first: list[int], second: list[int]) -> list[int]:
     result: list[int]
     result = first + second
     return result
+
+
+print(sub([], 1, 3))
