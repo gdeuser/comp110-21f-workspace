@@ -37,10 +37,10 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
 def head(original: dict[str, list[str]], included_rows: int) -> dict[str, list[str]]:
     """Choose certain rows to include in a dictionary table."""
     result: dict[str, list[str]] = {}
-    if included_rows >= len(original):
-        return original
-    else:
-        for title in original:
+    for title in original:
+        if included_rows >= len(original[title]):
+            return original
+        else:
             values: list[str] = []
             i: int = 0
             while i < included_rows:
