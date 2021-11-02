@@ -37,24 +37,25 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
 def head(original: dict[str, list[str]], included_rows: int) -> dict[str, list[str]]:
     """Choose certain rows to include in a dictionary table."""
     result: dict[str, list[str]] = {}
-    for title in original:
-        values: list[str] = []
-        i: int = 0
-        while i < included_rows:
-            item: str = original[title][i]
-            values.append(item)
-            i += 1
-        result[title] = values
+    if included_rows >= len(original):
+        return original
+    else:
+        for title in original:
+            values: list[str] = []
+            i: int = 0
+            while i < included_rows:
+                item: str = original[title][i]
+                values.append(item)
+                i += 1
+            result[title] = values
     return result
 
 
 def select(unchanged_table: dict[str, list[str]], column_names: list[str]) -> dict[str, list[str]]:
     """Selecting certain columns out of a dictionary."""
     result: dict[str, list[str]] = {}
-    for key in unchanged_table:
-        for item in column_names:
-            if key == item:
-                result[key] = unchanged_table[key]
+    for item in column_names:
+        result[item] = unchanged_table[item]
     return result
 
 
@@ -64,7 +65,7 @@ def concat(table_one: dict[str, list[str]], table_two: dict[str, list[str]]) -> 
     for key in table_one:
         result[key] = table_one[key]
     for key in table_two:
-        existence: bool = key in table_two
+        existence: bool = key in result
         if existence is True:
             result[key] = table_one[key] + table_two[key]
         else:
