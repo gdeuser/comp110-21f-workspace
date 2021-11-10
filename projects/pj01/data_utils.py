@@ -82,3 +82,43 @@ def count(values: list[str]) -> dict[str, int]:
         else:
             result[item] = 1
     return result
+
+
+def in_person_recommendation(start: dict[str, list[str]]) -> list[int]:
+    """Taking all of the recommendation values for the Remote section."""
+    section: list[str] = start["section"]
+    would_recommend: list[str] = start["would_recommend"]
+    recommend_in_person: list[int] = []
+    i: int = 0
+    y: int = 0
+    while i < len(section):
+        if section[i] == "In-Person":
+            recommend_in_person.append(int(would_recommend[i]))
+            y += 1
+        i += 1
+    return recommend_in_person
+
+
+def remote_recommendation(start: dict[str, list[str]]) -> list[int]:
+    """Taking all of the recommendation values for the Remote section."""
+    section: list[str] = start["section"]
+    would_recommend: list[str] = start["would_recommend"]
+    recommend_remote: list[int] = []
+    i: int = 0
+    y: int = 0
+    while i < len(section):
+        if section[i] == "Remote":
+            recommend_remote.append(int(would_recommend[i]))
+            y += 1
+        i += 1
+    return recommend_remote
+
+
+def average(n: list[int]) -> float:
+    """Averaging all of the values in a list."""
+    how_many: int = len(n)
+    i = 0
+    for item in n:
+        i += item
+    avg: float = i / how_many
+    return avg
