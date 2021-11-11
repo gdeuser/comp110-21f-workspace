@@ -23,10 +23,24 @@ class Point:
         scaled_point: Point = Point(x, y)
         return scaled_point
 
+    def __str__(self) -> str:
+        """Produce a str representation of a Point for humans."""
+        return f"({self.x}, {self.y})"
+    
+    def __repr__(self) -> str:
+        """Produce a str representatin of a Point for Python!"""
+        return f"Point({self.x}, {self.y})"
 
-p0: Point = Point(1.0, 2.0)
-p0.scale_by(2.0)
-print(f"{p0.x}, {p0.y}")
+    def __mul__(self, factor: float) -> Point:
+        """Overload the multiplication operator for Point * float."""
+        return Point(self.x * factor, self.y * factor)
 
-p1: Point = p0.scale(2.0)
-print(f"{p1.x}, {p1.y}")
+
+# p0: Point = Point(1.0, 2.0)
+# p1: Point = p0.scale(2.0)
+# print(p0)
+# p1_as_a_str: str = str(p1)
+# print(p1_as_a_str)
+#  p1_repr: str = repr(p1)
+# print(p1_repr)
+
