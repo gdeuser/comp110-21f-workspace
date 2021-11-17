@@ -43,4 +43,3 @@ class Point:
 # print(p1_as_a_str)
 #  p1_repr: str = repr(p1)
 # print(p1_repr)
-
